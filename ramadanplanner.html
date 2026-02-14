@@ -8,7 +8,6 @@
     <link href="https://fonts.cdnfonts.com" rel="stylesheet">
     
     <style>
-        /* আপনার আগের স্টাইল অপরিবর্তিত রাখা হয়েছে */
         body {
             font-family: 'SolaimanLipi', sans-serif;
             margin: 0;
@@ -23,6 +22,7 @@
         p { font-size: 16px; margin-bottom: 12px; text-align: justify; }
         ul { text-align: left; display: inline-block; padding-left: 20px; margin-bottom: 20px; }
         
+        /* বাটন স্টাইল */
         .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 20px; }
         .btn {
             padding: 10px 25px;
@@ -41,6 +41,7 @@
         .btn-form { background: #a142f4; }
         .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
+        /* পপ-আপ (Modal) স্টাইল */
         .modal {
             display: none;
             position: fixed;
@@ -84,8 +85,7 @@
 
     <div class="btn-group">
         <a href="javascript:void(0)" class="btn btn-view" onclick="openModal('pdf')">দেখে নিন</a>
-        <a href="JAVASCRIPT:void(0)" class="btn btn-download" onclick="window.open('https://drive.google.com/uc?export=download&id=YOUR_FILE_ID', '_blank')">ডাউনলোড করুন</a>
-        <!-- অথবা যদি preview চান তাহলে ডাউনলোড বাটনেও modal খোলা যায়, কিন্তু সরাসরি ডাউনলোড ভালো -->
+        <a href="javascript:void(0)" class="btn btn-download" onclick="window.open('https://drive.google.com/uc?export=download&id=1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF', '_blank')">ডাউনলোড করুন</a>
     </div>
 
     <p style="font-weight: 600; color: #555;">পিডিএফ ফাইলটি আপনার প্রিয়জনের নামে কাস্টোমাইজ করতে নিচের ফর্মটি ফিলাপ করুন।</p>
@@ -95,9 +95,9 @@
 <!-- Modal Structure -->
 <div id="universalModal" class="modal">
     <div class="modal-header">
-        <span class="close-btn" onclick="closeModal()">×</span>
+        <span class="close-btn" onclick="closeModal()">&times;</span>
         <div id="header-right">
-             <a id="modal-download-link" href="#" class="modal-dl" target="_blank">ডাউনলোড</a>
+             <a id="modal-download-link" href="https://drive.google.com/uc?export=download&id=1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF" class="modal-dl" target="_blank">ডাউনলোড</a>
         </div>
     </div>
     <div class="modal-body">
@@ -106,10 +106,7 @@
 </div>
 
 <script>
-    // আপনার আসল PDF-এর Google Drive লিঙ্ক দিন (উদাহরণ)
-    const pdfPreviewUrl = "https://drive.google.com/file/d/YOUR_FILE_ID/preview";  // দেখার জন্য (preview)
-    const pdfDownloadUrl = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID";  // সরাসরি ডাউনলোড
-
+    const pdfPreviewUrl = "https://drive.google.com/file/d/1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF/preview";
     const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfjhYUcEZeAZTlv3SV582i-1ecoRfjE4pqoTeEYfY5TCquNiQ/viewform?usp=header";
 
     function openModal(type) {
@@ -119,11 +116,10 @@
 
         if (type === 'pdf') {
             iframe.src = pdfPreviewUrl;
-            dlLink.href = pdfDownloadUrl;
             dlLink.style.display = "block";
         } else {
             iframe.src = formUrl;
-            dlLink.style.display = "none";
+            dlLink.style.display = "none"; // ফর্মের সময় ডাউনলোড বাটন লুকানো থাকবে
         }
         
         modal.style.display = "block";
