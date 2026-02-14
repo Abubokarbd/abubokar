@@ -22,7 +22,6 @@
         p { font-size: 16px; margin-bottom: 12px; text-align: justify; }
         ul { text-align: left; display: inline-block; padding-left: 20px; margin-bottom: 20px; }
         
-        /* বাটন স্টাইল */
         .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 20px; }
         .btn {
             padding: 10px 25px;
@@ -39,9 +38,9 @@
         .btn-view { background: #1a73e8; }
         .btn-download { background: #34a853; }
         .btn-form { background: #a142f4; }
+        .btn-sample { background: #fbbc05; color: #000 !important; } /* স্যাম্পলের জন্য নতুন কালার */
         .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        /* পপ-আপ (Modal) স্টাইল */
         .modal {
             display: none;
             position: fixed;
@@ -88,8 +87,12 @@
         <a href="javascript:void(0)" class="btn btn-download" onclick="window.open('https://drive.google.com/uc?export=download&id=1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF', '_blank')">ডাউনলোড করুন</a>
     </div>
 
-    <p style="font-weight: 600; color: #555;">পিডিএফ ফাইলটি আপনার প্রিয়জনের নামে কাস্টোমাইজ করতে নিচের ফর্মটি ফিলাপ করুন।</p>
-    <a href="javascript:void(0)" class="btn btn-form" onclick="openModal('form')">কাস্টোমাইজ ফর্ম ফিলাপ করুন</a>
+    <p style="font-weight: 600; color: #555;">পিডিএফ ফাইলটি আপনার প্রিয়জনের নামে কাস্টোমাইজ করতে নিচের ফর্মটি ফিলাপ করুন। নিচে একটা স্যাম্পল কাস্টমাইজড কভার দেখে নিন।</p>
+    
+    <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn-sample" onclick="openModal('sample')">স্যাম্পল কভার দেখুন</a>
+        <a href="javascript:void(0)" class="btn btn-form" onclick="openModal('form')">কাস্টোমাইজ ফর্ম ফিলাপ করুন</a>
+    </div>
 </div>
 
 <!-- Modal Structure -->
@@ -97,7 +100,7 @@
     <div class="modal-header">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <div id="header-right">
-             <a id="modal-download-link" href="https://drive.google.com/uc?export=download&id=1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF" class="modal-dl" target="_blank">ডাউনলোড</a>
+             <a id="modal-download-link" href="#" class="modal-dl" target="_blank">ডাউনলোড</a>
         </div>
     </div>
     <div class="modal-body">
@@ -106,7 +109,12 @@
 </div>
 
 <script>
-    const pdfPreviewUrl = "https://drive.google.com/file/d/1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF/preview";
+    const mainPdfPreviewUrl = "https://drive.google.com/file/d/1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF/preview";
+    const mainPdfDownloadUrl = "https://drive.google.com/uc?export=download&id=1BQrWhcNev_jrbeS9vIckRbAw02_T9vLF";
+    
+    const samplePdfPreviewUrl = "https://drive.google.com/file/d/1OQSkrbXRFFGZXZvQD_hLxJgGDjbFHvPb/preview";  // স্যাম্পল (পাবলিক করুন)
+    const samplePdfDownloadUrl = "https://drive.google.com/uc?export=download&id=1OQSkrbXRFFGZXZvQD_hLxJgGDjbFHvPb";
+    
     const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfjhYUcEZeAZTlv3SV582i-1ecoRfjE4pqoTeEYfY5TCquNiQ/viewform?usp=header";
 
     function openModal(type) {
@@ -115,11 +123,16 @@
         const dlLink = document.getElementById("modal-download-link");
 
         if (type === 'pdf') {
-            iframe.src = pdfPreviewUrl;
+            iframe.src = mainPdfPreviewUrl;
+            dlLink.href = mainPdfDownloadUrl;
             dlLink.style.display = "block";
-        } else {
+        } else if (type === 'sample') {
+            iframe.src = samplePdfPreviewUrl;
+            dlLink.href = samplePdfDownloadUrl;
+            dlLink.style.display = "block";
+        } else {  // form
             iframe.src = formUrl;
-            dlLink.style.display = "none"; // ফর্মের সময় ডাউনলোড বাটন লুকানো থাকবে
+            dlLink.style.display = "none";
         }
         
         modal.style.display = "block";
