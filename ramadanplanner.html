@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>মাহে রমাদান ডায়েরি</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: transparent; /* ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড */
+            color: inherit; /* ব্লগারের টেক্সট কালার অটো নিয়ে নেবে */
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 { color: #2c3e50; font-size: 24px; margin-bottom: 20px; }
+        h3 { color: #34495e; margin-top: 25px; }
+        p { margin-bottom: 15px; text-align: justify; font-size: 17px; }
+        
+        ul { text-align: left; margin: 20px auto; max-width: 90%; }
+        li { margin-bottom: 10px; font-size: 16px; }
+
+        /* বাটন ও সেকশন স্টাইল */
+        .action-section {
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1); /* হালকা শেড */
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-view { background: #3498db; color: white !important; }
+        .btn-download { background: #27ae60; color: white !important; }
+        .btn-form { background: #8e44ad; color: white !important; }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            opacity: 0.9;
+        }
+
+        .custom-text {
+            margin-top: 30px;
+            font-weight: 600;
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* পপ-আপ (Modal) স্টাইল */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: #fff;
+            border-radius: 10px 10px 0 0;
+            max-width: 90%;
+            margin: 20px auto 0;
+        }
+
+        .close-btn { font-size: 35px; cursor: pointer; color: #e74c3c; line-height: 1; }
+        .dl-text { 
+            font-weight: bold; 
+            text-decoration: none; 
+            color: #27ae60; 
+            border: 1px solid #27ae60;
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+
+        .modal-content {
+            width: 90%;
+            height: 80vh;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+        }
+
+        iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 600px) {
+            .btn { width: 100%; }
+            h1 { font-size: 20px; }
+            .modal-header { width: 95%; margin-top: 10px; }
+            .modal-content { width: 95%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>রমজানে ইবাদতে মনযোগী হতে 'মাহে রমাদান ডায়েরি'র গুরুত্ব</h1>
+    <p>পবিত্র রমজান মাস আত্মশুদ্ধি ও মহান আল্লাহর নৈকট্য লাভের মাস। তবে ব্যস্ততার কারণে অনেক সময় আমরা আমাদের ইবাদতের সঠিক হিসাব রাখতে পারি না। এই সমস্যার সমাধানে মাহে রমাদান ডায়েরি বা একটি পূর্ণাঙ্গ রমজান প্লানার হতে পারে আপনার সেরা সঙ্গী।</p>
+    
+    <h3>কেন ব্যবহার করবেন এই রমজান প্লানার?</h3>
+    <ul>
+        <li><strong>সালাত ট্র্যাকার:</strong> ফজর থেকে ইশা, এমনকি তারাবীহ ও তাহাজ্জুদ নামাজের রেকর্ড রাখার সুব্যবস্থা।</li>
+        <li><strong>জ্ঞানার্জন:</strong> প্রতিদিনের কুরআন তিলাওয়াত, তাফসির পাঠ এবং হাদিস অধ্যয়নের হিসাব রাখা।</li>
+        <li><strong>তাসবীহ ও জিকির:</strong> সকাল-সন্ধ্যায় মাসনুন দোয়া ও জিকিরের জন্য আলাদা সেকশন।</li>
+        <li><strong>আত্মসমালোচনা:</strong> দিনের শেষে নিজের ভুলগুলো শুধরে নিতে 'আত্মসমালোচনা' অংশটি অত্যন্ত কার্যকর।</li>
+    </ul>
+
+    <h3>পরিকল্পিত রমজানের সুফল</h3>
+    <p>পরিকল্পিতভাবে ইবাদত করলে সময়ের অপচয় রোধ হয় এবং আধ্যাত্মিক উন্নতি ত্বরান্বিত হয়। আগামীকালের পরিকল্পনা আগে থেকেই লিখে রাখলে ইবাদতে একনিষ্ঠতা বজায় থাকে। তাই এবারের রমজানকে আরও ফলপ্রসূ করতে আজই সংগ্রহ করুন একটি মাহে রমাদান ডায়েরি।</p>
+
+    <div class="action-section">
+        <div class="btn-group">
+            <button class="btn btn-view" onclick="openModal()">দেখে নিন</button>
+            <a href="https://drive.google.com" class="btn btn-download">ডাউনলোড করুন</a>
+        </div>
+
+        <p class="custom-text">পিডিএফ ফাইলটি আপনার প্রিয়জনের নামে বা আপনার নিজের নামে কাস্টোমাইজ করতে এই গুগল ফর্ম টি ফিলাপ করুন।</p>
+        <a href="https://docs.google.com" target="_blank" class="btn btn-form">কাস্টোমাইজ ফর্ম</a>
+    </div>
+</div>
+
+<!-- পিডিএফ পপ-আপ মডেল -->
+<div id="pdfModal" class="modal">
+    <div class="modal-header">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <a href="https://drive.google.com" class="dl-text">ডাউনলোড</a>
+    </div>
+    <div class="modal-content">
+        <iframe src="https://drive.google.com"></iframe>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById("pdfModal").style.display = "block";
+        document.body.style.overflow = "hidden"; // পপ-আপ থাকাকালীন স্ক্রল বন্ধ
+    }
+
+    function closeModal() {
+        document.getElementById("pdfModal").style.display = "none";
+        document.body.style.overflow = "auto"; // স্ক্রল চালু
+    }
+
+    window.onclick = function(event) {
+        let modal = document.getElementById("pdfModal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>
