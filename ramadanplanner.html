@@ -4,130 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>মাহে রমাদান ডায়েরি</title>
+    <!-- SolaimanLipi Font -->
+    <link href="https://fonts.cdnfonts.com" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com');
-
         body {
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'SolaimanLipi', sans-serif;
             margin: 0;
-            padding: 20px;
-            background: transparent; /* ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড */
-            color: inherit; /* ব্লগারের টেক্সট কালার অটো নিয়ে নেবে */
-            line-height: 1.8;
+            padding: 15px;
+            background: transparent !important;
+            color: inherit;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        h1 { color: #2c3e50; font-size: 24px; margin-bottom: 20px; }
-        h3 { color: #34495e; margin-top: 25px; }
-        p { margin-bottom: 15px; text-align: justify; font-size: 17px; }
+        .container { max-width: 100%; margin: 0 auto; text-align: center; }
+        h1 { font-size: 22px; color: #2c3e50; margin-bottom: 15px; }
+        p { font-size: 16px; margin-bottom: 12px; text-align: justify; }
+        ul { text-align: left; display: inline-block; padding-left: 20px; margin-bottom: 20px; }
         
-        ul { text-align: left; margin: 20px auto; max-width: 90%; }
-        li { margin-bottom: 10px; font-size: 16px; }
-
-        /* বাটন ও সেকশন স্টাইল */
-        .action-section {
-            margin-top: 40px;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1); /* হালকা শেড */
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
+        /* বাটন স্টাইল */
+        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 20px; }
         .btn {
-            padding: 12px 30px;
+            padding: 10px 25px;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: bold;
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            transition: 0.3s;
+            color: #fff !important;
         }
-
-        .btn-view { background: #3498db; color: white !important; }
-        .btn-download { background: #27ae60; color: white !important; }
-        .btn-form { background: #8e44ad; color: white !important; }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            opacity: 0.9;
-        }
-
-        .custom-text {
-            margin-top: 30px;
-            font-weight: 600;
-            color: #555;
-            font-size: 15px;
-        }
+        .btn-view { background: #1a73e8; }
+        .btn-download { background: #34a853; }
+        .btn-form { background: #a142f4; }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
         /* পপ-আপ (Modal) স্টাইল */
         .modal {
             display: none;
             position: fixed;
-            z-index: 9999;
+            z-index: 10000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(3px);
         }
-
         .modal-header {
+            background: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 25px;
-            background: #fff;
-            border-radius: 10px 10px 0 0;
-            max-width: 90%;
-            margin: 20px auto 0;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
         }
-
-        .close-btn { font-size: 35px; cursor: pointer; color: #e74c3c; line-height: 1; }
-        .dl-text { 
-            font-weight: bold; 
-            text-decoration: none; 
-            color: #27ae60; 
-            border: 1px solid #27ae60;
-            padding: 5px 15px;
-            border-radius: 5px;
-        }
-
-        .modal-content {
-            width: 90%;
-            height: 80vh;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 0 0 10px 10px;
-            overflow: hidden;
-        }
-
+        .close-btn { font-size: 35px; color: red; cursor: pointer; line-height: 1; }
+        .modal-dl { font-weight: bold; text-decoration: none; color: #34a853; border: 1px solid #34a853; padding: 3px 12px; border-radius: 5px; }
+        
+        .modal-body { height: calc(100% - 60px); width: 100%; background: #fff; }
         iframe { width: 100%; height: 100%; border: none; }
 
-        @media (max-width: 600px) {
-            .btn { width: 100%; }
-            h1 { font-size: 20px; }
-            .modal-header { width: 95%; margin-top: 10px; }
-            .modal-content { width: 95%; }
-        }
+        @media (max-width: 480px) { .btn { width: 100%; } }
     </style>
 </head>
 <body>
@@ -136,55 +76,65 @@
     <h1>রমজানে ইবাদতে মনযোগী হতে 'মাহে রমাদান ডায়েরি'র গুরুত্ব</h1>
     <p>পবিত্র রমজান মাস আত্মশুদ্ধি ও মহান আল্লাহর নৈকট্য লাভের মাস। তবে ব্যস্ততার কারণে অনেক সময় আমরা আমাদের ইবাদতের সঠিক হিসাব রাখতে পারি না। এই সমস্যার সমাধানে মাহে রমাদান ডায়েরি বা একটি পূর্ণাঙ্গ রমজান প্লানার হতে পারে আপনার সেরা সঙ্গী।</p>
     
-    <h3>কেন ব্যবহার করবেন এই রমজান প্লানার?</h3>
     <ul>
-        <li><strong>সালাত ট্র্যাকার:</strong> ফজর থেকে ইশা, এমনকি তারাবীহ ও তাহাজ্জুদ নামাজের রেকর্ড রাখার সুব্যবস্থা।</li>
-        <li><strong>জ্ঞানার্জন:</strong> প্রতিদিনের কুরআন তিলাওয়াত, তাফসির পাঠ এবং হাদিস অধ্যয়নের হিসাব রাখা।</li>
-        <li><strong>তাসবীহ ও জিকির:</strong> সকাল-সন্ধ্যায় মাসনুন দোয়া ও জিকিরের জন্য আলাদা সেকশন।</li>
-        <li><strong>আত্মসমালোচনা:</strong> দিনের শেষে নিজের ভুলগুলো শুধরে নিতে 'আত্মসমালোচনা' অংশটি অত্যন্ত কার্যকর।</li>
+        <li><strong>সালাত ট্র্যাকার:</strong> সকল নামাজের রেকর্ড রাখার সুবিধা।</li>
+        <li><strong>ज्ञानार्जन:</strong> কুরআন ও হাদিস অধ্যয়নের হিসাব রাখা।</li>
+        <li><strong>তাসবীহ ও জিকির:</strong> সকাল-সন্ধ্যায় জিকিরের আলাদা সেকশন।</li>
+        <li><strong>আত্মসমালোচনা:</strong> নিজেকে শুধরে নেওয়ার কার্যকর মাধ্যম।</li>
     </ul>
 
-    <h3>পরিকল্পিত রমজানের সুফল</h3>
-    <p>পরিকল্পিতভাবে ইবাদত করলে সময়ের অপচয় রোধ হয় এবং আধ্যাত্মিক উন্নতি ত্বরান্বিত হয়। আগামীকালের পরিকল্পনা আগে থেকেই লিখে রাখলে ইবাদতে একনিষ্ঠতা বজায় থাকে। তাই এবারের রমজানকে আরও ফলপ্রসূ করতে আজই সংগ্রহ করুন একটি মাহে রমাদান ডায়েরি।</p>
-
-    <div class="action-section">
-        <div class="btn-group">
-            <button class="btn btn-view" onclick="openModal()">দেখে নিন</button>
-            <a href="https://drive.google.com" class="btn btn-download">ডাউনলোড করুন</a>
-        </div>
-
-        <p class="custom-text">পিডিএফ ফাইলটি আপনার প্রিয়জনের নামে বা আপনার নিজের নামে কাস্টোমাইজ করতে এই গুগল ফর্ম টি ফিলাপ করুন।</p>
-        <a href="https://docs.google.com" target="_blank" class="btn btn-form">কাস্টোমাইজ ফর্ম</a>
+    <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn-view" onclick="openModal('pdf')">দেখে নিন</a>
+        <a href="https://drive.google.com" class="btn btn-download">ডাউনলোড করুন</a>
     </div>
+
+    <p style="font-weight: 600; color: #555;">পিডিএফ ফাইলটি আপনার প্রিয়জনের নামে কাস্টোমাইজ করতে নিচের ফর্মটি ফিলাপ করুন।</p>
+    <a href="javascript:void(0)" class="btn btn-form" onclick="openModal('form')">কাস্টোমাইজ ফর্ম ফিলাপ করুন</a>
 </div>
 
-<!-- পিডিএফ পপ-আপ মডেল -->
-<div id="pdfModal" class="modal">
+<!-- Modal Structure -->
+<div id="universalModal" class="modal">
     <div class="modal-header">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <a href="https://drive.google.com" class="dl-text">ডাউনলোড</a>
+        <div id="header-right">
+             <a id="modal-download-link" href="https://drive.google.com" class="modal-dl">ডাউনলোড</a>
+        </div>
     </div>
-    <div class="modal-content">
-        <iframe src="https://drive.google.com"></iframe>
+    <div class="modal-body">
+        <iframe id="modal-iframe" src=""></iframe>
     </div>
 </div>
 
 <script>
-    function openModal() {
-        document.getElementById("pdfModal").style.display = "block";
-        document.body.style.overflow = "hidden"; // পপ-আপ থাকাকালীন স্ক্রল বন্ধ
+    const pdfUrl = "https://drive.google.com";
+    const formUrl = "https://docs.google.com";
+
+    function openModal(type) {
+        const modal = document.getElementById("universalModal");
+        const iframe = document.getElementById("modal-iframe");
+        const dlLink = document.getElementById("header-right");
+
+        if (type === 'pdf') {
+            iframe.src = pdfUrl;
+            dlLink.style.display = "block";
+        } else {
+            iframe.src = formUrl;
+            dlLink.style.display = "none"; // ফর্মের সময় ডাউনলোড বাটন লুকানো থাকবে
+        }
+        
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
     }
 
     function closeModal() {
-        document.getElementById("pdfModal").style.display = "none";
-        document.body.style.overflow = "auto"; // স্ক্রল চালু
+        const modal = document.getElementById("universalModal");
+        document.getElementById("modal-iframe").src = "";
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
     }
 
     window.onclick = function(event) {
-        let modal = document.getElementById("pdfModal");
-        if (event.target == modal) {
-            closeModal();
-        }
+        if (event.target == document.getElementById("universalModal")) closeModal();
     }
 </script>
 
